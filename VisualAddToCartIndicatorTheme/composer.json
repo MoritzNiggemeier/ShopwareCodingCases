@@ -1,0 +1,23 @@
+{
+	"name": "coding-case/visual-add-to-cart-indicator",
+	"description": "CodingCase - Visual add to card indicator",
+	"authors": [{"name": "Moritz Niggemeier"}],
+	"version": "0.9",
+	"type": "shopware-platform-plugin",
+	"license": "MIT",
+	"require": {
+		"shopware/core": "6.5.*"
+	},
+	"extra": {
+		"shopware-plugin-class": "CodingCase\\VisualAddToCartIndicator",
+		"label": {
+			"de-DE": "CodingCase - Grafische Warenkorb Bestätigung",
+			"en-GB": "CodingCase - Visual add to cart indicator"
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"CodingCase\\": "src/"
+		}
+	}
+}

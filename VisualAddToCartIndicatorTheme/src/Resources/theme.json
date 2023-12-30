@@ -1,0 +1,67 @@
+{
+	"name": "VisualAddToCartIndicator",
+	"author": "Moritz Niggemeier",
+	"views": [
+		 "@Storefront",
+		 "@Plugins",
+		 "@VisualAddToCartIndicator"
+	],
+	"style": [
+		"app/storefront/src/scss/overrides.scss",
+		"@Storefront",
+		"app/storefront/src/scss/base.scss"
+	],
+	"script": [
+		"@Storefront",
+		"app/storefront/dist/storefront/js/visual-add-to-cart-indicator.js"
+	],
+	"asset": [
+		"@Storefront",
+		"app/storefront/src/assets"
+	],
+	"config": {
+		"fields": {
+			"va2ci-colorBackground": {
+				"label": {
+					"en-GB": "Background color",
+					"de-DE": "Hintergrundfarbe"
+				},
+				"type": "color",
+				"value": "#00ff00",
+				"editable": true
+			},
+			"va2ci-colorText": {
+				"label": {
+					"en-GB": "Text color",
+					"de-DE": "Textfarbe"
+				},
+				"type": "color",
+				"value": "#000000",
+				"editable": true
+			},
+			"va2ci-duration": {
+				"label": {
+					"en-GB": "Effect duration (in seconds)",
+					"de-DE": "Effektdauer (in Sekunden)"
+				},
+				"type": "number",
+				"custom": {
+					"numberType": "float",
+					"min": 1,
+					"max": 5
+				},
+				"value": 1.0,
+				"editable": true
+			},
+			"va2ci-animation": {
+				"label": {
+					"en-GB": "Animation",
+					"de-DE": "Animation"
+				},
+				"type": "switch",
+				"value": true,
+				"editable": true
+			}
+		}
+	}
+}

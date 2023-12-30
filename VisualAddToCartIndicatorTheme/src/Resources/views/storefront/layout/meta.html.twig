@@ -1,0 +1,12 @@
+{% sw_extends '@Storefront/storefront/layout/meta.html.twig' %}
+{% block layout_head_javascript_hmr_mode %}
+	{{ parent() }}
+	<script>
+	window.va2ci = {
+		text: '{{ 'va2ci.addProduct' | trans }}',
+		textOriginal: '{{ 'detail.addProduct' | trans }}',
+		animation: '{{ theme_config('va2ci-animation') }}',
+		duration: {{ theme_config('va2ci-duration') }}
+	};
+	</script>
+{% endblock %}

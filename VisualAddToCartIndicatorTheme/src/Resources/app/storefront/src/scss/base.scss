@@ -1,0 +1,12 @@
+.va2ci-static {
+	color: $va2ci-colorText;
+	background-color: $va2ci-colorBackground;
+}
+
+.va2ci-animation  { animation: va2ci-animation $va2ci-duration+s linear 0s 1 normal; }
+
+@keyframes va2ci-animation {
+	0%{		color: $sw-color-buy-button-text;	background-color: $sw-color-buy-button;	}
+	50%{	color: $va2ci-colorText;			background-color: $va2ci-colorBackground;	}
+	100%{	color: $sw-color-buy-button-text;	background-color: $sw-color-buy-button;	}
+}
