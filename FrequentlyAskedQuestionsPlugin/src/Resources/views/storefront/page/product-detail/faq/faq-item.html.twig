@@ -1,0 +1,10 @@
+{% block page_product_detail_faq_item %}
+	<div class="product-detail-faq-item">
+		{% for faq in page.extensions.faq.elements %}
+			<hr />
+			<p><b>{{ "faq.question"|trans|sw_sanitize }}</b> <i> {{ faq.question }}</i></p>
+			<p><b>{{ "faq.answer"|trans|sw_sanitize }}</b> <i>{{ faq.answer }}</i></p>
+		{% endfor %}
+		<hr />
+	</div>
+{% endblock %}

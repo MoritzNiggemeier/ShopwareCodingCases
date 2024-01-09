@@ -1,0 +1,27 @@
+{
+	"faq": {
+		"name": "FAQ",
+		"nameFull": "Häufige Fragen und Antworten",
+
+		"question" : "Frage: ",
+		"answer" : "Antwort: ",
+
+		"questionFormLabel" : "Ihre Frage:",
+		"questionFormPlaceholder" : "Bitte geben Sie Ihre Frage ein...",
+
+		"buttonCancel": "Abbrechen",
+		"buttonSubmit": "Frage abschicken",
+		"buttonWrite": "Eine Frage stellen",
+		"buttonHide": "FAQ anzeigen",
+		"buttonAnother": "Eine weitere Frage stellen",
+
+		"listEmpty": "Es gibt bisher keine FAQ für dieses Produkt.",
+
+		"formSuccess": "Ihre Frage wurde erfolgreich übermittelt. Sie wird angezeigt werden, sobald sie beantwortet wurde.",
+		"formError": "Beim Absenden der Frage ist ein Fehler aufgetreten.",
+
+		"loginHeader": "Anmelden",
+		"loginDescription": "Fragen können nur von angemeldeten Benutzern eingereicht werden. Bitte geben Sie Ihre Anmeldedaten ein.",
+		"loginRegister": "Neuer Benutzer?"
+	}
+}

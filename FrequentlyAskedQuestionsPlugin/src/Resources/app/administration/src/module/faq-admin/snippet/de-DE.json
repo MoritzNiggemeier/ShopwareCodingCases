@@ -1,0 +1,17 @@
+{
+	"faq": {
+
+		"name": "FAQ",
+		"nameFull": "Häufige Fragen und Antworten",
+
+		"questionLabel": "Frage",
+		"answerLabel": "Antwort",
+		"productsLabel": "Produkte",
+
+		"buttonAdd": "Hinzufügen",
+		"buttonSave": "Speichern",
+		"buttonCancel": "Abbrechen",
+
+		"errorTitle": "Ein Fehler ist aufgetreten"
+	}
+}

@@ -1,0 +1,72 @@
+{% block page_product_detail_faq_form %}
+
+	{% set formAjaxSubmitOptions = { replaceSelectors: '.faq-form-container' } %}
+	{% if productId is null %}{% set productId = page.product.parentId is null ? page.product.id : page.product.parentId %}{% endif %}
+
+	<div class="faq-form-container">
+		<div class="faq-form-success{% if FaqFormSuccess == null %} d-none{% endif %}">
+			{% if FaqFormSuccess == true %}
+				{% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+					type: "success",
+					content: "faq.formSuccess"|trans|sw_sanitize}
+				%}
+			{% endif %}
+			{% if FaqFormSuccess == false %}
+				{% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+					type: "danger",
+					content: "faq.formError"|trans|sw_sanitize}
+				%}
+			{% endif %}
+			<button type="submit"
+					class="btn btn-primary"
+					onclick="
+						document.querySelector('.faq-textarea').value = '';
+						document.querySelector('.faq-form-success').classList.add('d-none');
+						document.querySelector('.faq-form').classList.remove('d-none', 'was-validated');">
+				{{ "faq.buttonAnother"|trans|sw_sanitize }}
+			</button>
+		</div>
+		<form class="faq-form{% if FaqFormSuccess != null %} d-none{% endif %}"
+			action="{{ path('frontend.faq.create') }}"
+			method="post"
+			data-form-validation="true"
+			data-form-ajax-submit="true"
+			data-form-ajax-submit-options='{{ formAjaxSubmitOptions|json_encode }}'>
+
+			<input type="hidden" name="productId" value="{{ productId }}">
+			<div class="form-group product-detail-faq-form-content">
+				<label for="faqContent">
+					{{ "faq.questionFormLabel"|trans|sw_sanitize }}
+				</label>
+				<textarea class="form-control faq-textarea{% if formViolations.getViolations('/content') %} is-invalid{% endif %}"
+					id="faqContent"
+					name="content"
+					placeholder="{{ "faq.questionFormPlaceholder"|trans|striptags }}"
+					required="required"
+					minlength="40"
+					maxlength="255"
+					rows="8"></textarea>
+				{% if formViolations.getViolations('/content') is not empty %}
+					{% sw_include '@Storefront/storefront/utilities/form-violation.html.twig' with {
+						violationPath: '/content'
+					} %}
+				{% endif %}
+			</div>
+			<div class="product-detail-faq-form-actions">
+				<a href="#"
+					class="btn btn-outline-secondary product-detail-faq-cancel"
+					data-bs-toggle="collapse"
+					data-bs-target=".multi-collapse"
+					aria-expanded="false"
+					aria-controls="faq-form faq-list">
+					{{ "faq.buttonCancel"|trans|sw_sanitize }}
+				</a>
+				<button type="submit"
+						id="faq-ask-question"
+						class="btn btn-primary btn-faq-submit">
+					{{ "faq.buttonSubmit"|trans|sw_sanitize }}
+				</button>
+			</div>
+		</form>
+	</div>
+{% endblock %}

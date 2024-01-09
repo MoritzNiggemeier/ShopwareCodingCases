@@ -1,0 +1,16 @@
+.product-detail-faq-teaser-btn {
+
+	.product-detail-faq-teaser-hide {
+		display: none;
+	}
+
+	&.collapsed {
+		.product-detail-faq-teaser-show {
+			display: none;
+		}
+
+		.product-detail-faq-teaser-hide {
+			display: block;
+		}
+	}
+}

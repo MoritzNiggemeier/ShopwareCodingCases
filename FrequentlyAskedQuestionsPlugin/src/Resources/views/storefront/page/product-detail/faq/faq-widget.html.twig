@@ -1,0 +1,18 @@
+{% block page_product_detail_faq_widget %}
+	<div class="sticky-top product-detail-faq-widget">
+		<h3>{{ "faq.nameFull"|trans|sw_sanitize }}</h3>
+		<button class="btn btn-primary product-detail-faq-teaser-btn"
+				type="button"
+				data-bs-toggle="collapse"
+				data-bs-target=".multi-collapse"
+				aria-expanded="false"
+				aria-controls="faq-form faq-list">
+			<span class="product-detail-faq-teaser-show">
+				{{ "faq.buttonWrite"|trans|sw_sanitize }}
+			</span>
+			<span class="product-detail-faq-teaser-hide">
+				{{ "faq.buttonHide"|trans|sw_sanitize }}
+			</span>
+		</button>
+	</div>
+{% endblock %}

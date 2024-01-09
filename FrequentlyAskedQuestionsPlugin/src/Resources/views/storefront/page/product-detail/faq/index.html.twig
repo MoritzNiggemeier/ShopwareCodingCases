@@ -1,0 +1,62 @@
+{% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
+
+{% block utilities_offcanvas %}
+	
+	{% block utilities_offcanvas_header %}
+		<div class="offcanvas-header">
+			{% block utilities_offcanvas_close %}
+				<button class="btn btn-light offcanvas-close js-offcanvas-close">
+					{% block utilities_offcanvas_close_icon %}
+						{% sw_icon 'x' style { 'size': 'sm' } %}
+					{% endblock %}
+					{% block utilities_offcanvas_close_text %}
+						{{ "general.offcanvasCloseMenu"|trans|sw_sanitize }}
+					{% endblock %}
+				</button>
+			{% endblock %}
+		</div>
+	{% endblock %}
+
+	{% block utilities_offcanvas_content_container %}
+		<div class="offcanvas-body">
+			{% block utilities_offcanvas_content %}
+				{% block page_product_detail_faq_container %}
+					<div class="product-detail-faq tab-pane-container">
+						<div class="row product-detail-faq-content js-faq-container">
+							<div class="col-sm-4">
+								{% sw_include '@CodingCase/storefront/page/product-detail/faq/faq-widget.html.twig' %}
+							</div>
+							<div class="col product-detail-faq-main js-faq-content">
+								<div id="faq-form" class="collapse multi-collapse">
+									{% if context.customer and not context.customer.guest %}
+										<div class="product-detail-faq-form">
+											{% sw_include '@CodingCase/storefront/page/product-detail/faq/faq-form.html.twig' %}
+										</div>
+									{% else %}
+										<div class="product-detail-faq-login">
+											{% sw_include '@CodingCase/storefront/page/product-detail/faq/faq-login.html.twig' %}
+										</div>
+									{% endif %}
+								</div>
+								<div id="faq-list" class="collapse multi-collapse product-detail-faq-list show">
+									<div class="product-detail-faq-list-content">
+										{% sw_include '@CodingCase/storefront/page/product-detail/faq/faq-item.html.twig' %}
+									</div>
+									{% if page.extensions.faq.count <= 0 %}
+										{% block page_product_detail_faq_list_empty %}
+											{% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+												type: "info",
+												content: "faq.listEmpty"|trans|sw_sanitize
+											} %}
+										{% endblock %}
+									{% endif %}
+
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endblock %}
+			{% endblock %}
+		</div>
+	{% endblock %}
+{% endblock %}

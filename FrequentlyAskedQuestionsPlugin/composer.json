@@ -1,0 +1,23 @@
+{
+	"name": "coding-case/frequently-asked-questions-plugin",
+	"description": "CodingCase - FAQ admin module",
+	"authors": [{"name": "Moritz Niggemeier"}],
+	"version": "0.8",
+	"type": "shopware-platform-plugin",
+	"license": "MIT",
+	"require": {
+		"shopware/core": "6.5.*"
+	},
+	"extra": {
+		"shopware-plugin-class": "CodingCase\\FrequentlyAskedQuestionsPlugin",
+		"label": {
+			"de-DE": "CodingCase - FAQ Administrations Modul",
+			"en-GB": "CodingCase - FAQ admin module"
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"CodingCase\\": "src/"
+		}
+	}
+}

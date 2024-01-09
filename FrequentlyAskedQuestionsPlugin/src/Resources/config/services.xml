@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+
+<container	xmlns="http://symfony.com/schema/dic/services"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+	<services>
+
+		<service id="CodingCase\Core\Content\Faq\FaqDefinition">
+			<tag name="shopware.entity.definition" entity="faq" />
+		</service>
+
+		<service id="CodingCase\Core\Content\Faq\FaqProductMappingDefinition">
+			<tag name="shopware.entity.definition" entity="faq_product"/>
+		</service>
+
+		<service id="CodingCase\Core\Content\Product\ProductExtension">
+			<tag name="shopware.entity.extension"/>
+		</service>
+
+		<service id="CodingCase\Core\Content\Faq\SalesChannel\FaqRoute">
+			<argument type="service" id="faq.repository"/>
+		</service>
+
+		<service id="CodingCase\Storefront\Controller\FaqGetController" >
+			<argument type="service" id="CodingCase\Core\Content\Faq\SalesChannel\FaqRoute"/>
+			<tag name="kernel.event_subscriber" />
+		</service>
+
+		<service id="CodingCase\Storefront\Controller\FaqSetController" public="true">
+			<argument type="service" id="CodingCase\Core\Content\Faq\SalesChannel\FaqRoute"/>
+			<call method="setContainer">
+				<argument type="service" id="service_container"/>
+			</call>
+			<call method="setTwig">
+				<argument type="service" id="twig"/>
+			</call>
+		</service>
+
+	</services>
+
+</container>

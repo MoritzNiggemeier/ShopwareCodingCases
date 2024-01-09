@@ -1,0 +1,23 @@
+{% block faq_list %}
+	<sw-page class="faq-list">
+		{% block faq_smartbar %}
+			<template #smart-bar-actions>
+				<sw-button variant="primary" :routerLink="{ name: 'faq.admin.create' }">
+					{{ $tc('faq.buttonAdd') }}
+				</sw-button>
+				</template>
+		{% endblock %}
+		<template #content>
+		{% block faq_list_content %}
+			<sw-entity-listing
+				v-if = "faq"
+				:items="faq"
+				:repository="repository"
+				:showSelection="false"
+				:columns="columns"
+				detailRoute="faq.admin.detail">
+			</sw-entity-listing>
+		{% endblock %}
+		</template>
+	</sw-page>
+{% endblock %}

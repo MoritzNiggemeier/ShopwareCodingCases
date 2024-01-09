@@ -1,0 +1,27 @@
+{
+	"faq": {
+		"name": "FAQ",
+		"nameFull": "Frequently asked questions",
+
+		"question" : "Question: ",
+		"answer" : "Answer: ",
+
+		"questionFormLabel" : "Your question:",
+		"questionFormPlaceholder" : "Enter your question...",
+
+		"buttonCancel": "Cancel",
+		"buttonSubmit": "Submit",
+		"buttonWrite": "Ask a question",
+		"buttonHide": "Show FAQ",
+		"buttonAnother": "Ask another question",
+
+		"listEmpty": "There are no FAQ for this product yet.",
+
+		"formSuccess": "Your question has been successfully submitted. It will appear as soon as it is answered.",
+		"formError": "An error occured while submitting the question.",
+
+		"loginHeader": "Login",
+		"loginDescription": "Questions can only be submitted while being logged in. Please enter your login details below.",
+		"loginRegister": "New customer?"
+	}
+}

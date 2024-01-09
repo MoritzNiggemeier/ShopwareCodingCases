@@ -1,0 +1,31 @@
+{% block faq_detail %}
+	<sw-page class="faq-detail">
+		<template #smart-bar-actions>
+			<sw-button :routerLink="{ name: 'faq.admin.index' }">
+				{{ $tc('faq.buttonCancel') }}
+			</sw-button>
+			<sw-button-process
+				:isLoading="isLoading"
+				:processSuccess="processSuccess"
+				variant="primary"
+				@process-finish="saveFinish"
+				@click="onClickSave">
+				{{ $tc('faq.buttonSave') }}
+			</sw-button-process>
+    	</template>
+		<template #content>
+			<sw-card-view>
+				<sw-card v-if="faq" :isLoading="isLoading" :positionIdentifier="'0'">
+					<sw-field v-model="faq.question" :label="$tc('faq.questionLabel')"></sw-field>
+					<sw-field v-model="faq.answer" :label="$tc('faq.answerLabel')"></sw-field>
+					<sw-entity-many-to-many-select
+						v-model="faq.products"
+						:localMode="faq.isNew()"
+						:criteria="criteria"
+						:label="$tc('faq.productsLabel')">
+					</sw-entity-many-to-many-select>
+				</sw-card>
+			</sw-card-view>
+		</template>
+	</sw-page>
+{% endblock %}
