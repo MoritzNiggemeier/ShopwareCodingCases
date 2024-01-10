@@ -31,8 +31,8 @@ class FaqGetController implements EventSubscriberInterface
 
 		$criteria = new Criteria();
 		$criteria->addFilter( new MultiFilter( MultiFilter::CONNECTION_AND, [
-			new EqualsFilter( 'products.id', $id )/*,
-			new NotFilter(NotFilter::CONNECTION_AND,[new EqualsFilter('answer', null)])*/
+			new EqualsFilter( 'products.id', $id ),
+			new NotFilter(NotFilter::CONNECTION_AND,[new EqualsFilter('answer', null)])
 		]));
 
 		$response = $this->route->getFaq( $criteria, $event->getSalesChannelContext());
