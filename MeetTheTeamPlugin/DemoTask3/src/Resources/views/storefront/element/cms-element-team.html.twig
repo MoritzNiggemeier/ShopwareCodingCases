@@ -1,0 +1,20 @@
+{% block team_detail %}
+    <div class="container">
+        <div class="row">
+            {% for member in block.slots.getSlot('teamElement').data %}
+                <div class="col-sm-4">
+                    <div class="team">
+                        <div class="pic">
+                            <img src="{{ member.image.url }}">
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">{{ member.name }}</h3>
+                            <span class="team-position">{{ member.position }}</span>
+                            <span class="team-text">{{ member.text|raw }}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

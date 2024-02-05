@@ -1,0 +1,81 @@
+{% block team_detail %}
+	<sw-page class="team-detail">
+		<template #smart-bar-actions>
+			<sw-button :routerLink="{ name: 'team.admin.index' }">
+				{{ $tc('team.buttonCancel') }}
+			</sw-button>
+			<sw-button-process
+				:isLoading="isLoading"
+				:processSuccess="processSuccess"
+				variant="primary"
+				@process-finish="saveFinish"
+				@click="onClickSave">
+				{{ $tc('team.buttonSave') }}
+			</sw-button-process>
+   	</template>
+		<template slot="content">
+			<sw-card-view>
+				<sw-card v-if="team" :positionIdentifier="'0'">
+					<sw-field
+						:label="$t('team.nameLabel')"
+						v-model="team.name">
+					</sw-field>
+					<sw-field
+						:label="$t('team.positionLabel')"
+						v-model="team.position">
+					</sw-field>
+					<sw-text-editor
+						:label="$t('team.textLabel')"
+						:value="team.text"
+						@input="updateTeamText">
+					</sw-text-editor>
+					<sw-upload-listener
+						:uploadTag="mediaUploadTag('image')"
+						autoUpload
+						@media-upload-finish="setMediaItem($event, 'image')">
+					</sw-upload-listener>
+					<sw-media-upload-v2
+						:source="team.image_id"
+						:allowMultiSelect="false"
+						variant="regular"
+						:uploadTag="mediaUploadTag('image')"
+						:label="$t('team.imageLabel')"
+						:defaultFolder="repository.entityName"
+						@sw-media-upload-v2-media-upload-success="setMediaItem($event, 'image')"
+						@media-drop="onDropMedia($event, 'image')"
+						@media-upload-sidebar-open="openMediaSidebar"
+						@media-upload-remove-image="onUnlinkMedia('image')">
+					</sw-media-upload-v2>
+					<sw-upload-listener
+						:uploadTag="mediaUploadTag('imageBG')"
+						autoUpload
+						@media-upload-finish="setMediaItem($event, 'imageBG')">
+					</sw-upload-listener>
+					<sw-media-upload-v2
+						:source="team.imageBG_id"
+						:allowMultiSelect="false"
+						variant="regular"
+						:uploadTag="mediaUploadTag('imageBG')"
+						:label="$t('team.imageBGLabel')"
+						:defaultFolder="repository.entityName"
+						@sw-media-upload-v2-media-upload-success="setMediaItem($event, 'imageBG')"
+						@media-drop="onDropMedia($event, 'imageBG')"
+						@media-upload-sidebar-open="openMediaSidebar"
+						@media-upload-remove-image="onUnlinkMedia('imageBG')">
+					</sw-media-upload-v2>
+				</sw-card>
+			</sw-card-view>
+		</template>
+		<template slot="sidebar">
+			<sw-sidebar :propagateWidth="true">
+				<sw-sidebar-media-item ref="mediaSidebarItem">
+					<template slot="context-menu-items" slot-scope="media">
+						<sw-context-menu-item @click="setMediaFromSidebar(media.mediaItem)">
+							{{ $t('team.imageLabel') }}
+						</sw-context-menu-item>
+					</template>
+				</sw-sidebar-media-item>
+			</sw-sidebar>
+		</template>
+	</sw-page>
+{% endblock %}

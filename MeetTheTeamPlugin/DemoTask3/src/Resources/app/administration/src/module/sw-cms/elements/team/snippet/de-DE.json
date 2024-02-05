@@ -1,0 +1,10 @@
+{
+  "sw-cms": {
+    "elements": {
+      "team": {
+        "elementConfigure": "Konfigurieren Sie Teammitglieder hier",
+        "elementLabel": "Element Label"
+      }
+    }
+  }
+}

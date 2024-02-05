@@ -1,0 +1,23 @@
+{% block team_list %}
+	<sw-page class="team-list">
+		{% block team_smartbar %}
+			<template #smart-bar-actions>
+				<sw-button variant="primary" :routerLink="{ name: 'team.admin.create' }">
+					{{ $tc('team.buttonAdd') }}
+				</sw-button>
+			</template>
+		{% endblock %}
+		<template #content>
+		{% block team_list_content %}
+			<sw-entity-listing
+				v-if = "team"
+				:items="team"
+				:repository="repository"
+				:showSelection="false"
+				:columns="columns"
+				detailRoute="team.admin.detail">
+			</sw-entity-listing>
+		{% endblock %}
+		</template>
+	</sw-page>
+{% endblock %}

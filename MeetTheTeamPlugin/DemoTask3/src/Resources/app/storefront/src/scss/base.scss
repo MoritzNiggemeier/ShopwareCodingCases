@@ -1,0 +1,40 @@
+.team_cms_block{
+    text-align: center;
+}
+
+.team{
+    background: #fff;
+    padding:15px;
+    border:1px solid #333;
+    transition: all 0.30s linear 0s;
+}
+.team:hover{
+    background:#ccc;
+}
+.team .pic img{
+    width: 100%;
+    height: auto;
+}
+.team .team-info{
+    padding:20px 10px 0;
+}
+.team .post-title{
+    color: #888;
+    font-size:22px;
+    text-transform:capitalize;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.team .team-position{
+    font-size: 13px;
+    color:#999;
+    display: block;
+    margin: 5px 0 22px 0;
+    text-transform: capitalize;
+}
+.team .team-text{
+    color:#808080;
+    padding:28px 0 15px;
+    margin:0;
+    font-size:15px;
+}

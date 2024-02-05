@@ -1,0 +1,19 @@
+{
+	"team": {
+
+		"name": "Team",
+		"nameFull": "Team",
+
+		"nameLabel": "Name",
+		"positionLabel": "Position",
+		"textLabel": "Text",
+		"imageLabel": "Bild",
+		"imageBGLabel": "Hintergrund",
+
+		"buttonAdd": "Erstellen",
+		"buttonSave": "Speichern",
+		"buttonCancel": "Abbrechen",
+
+		"errorTitle": "Ein Fehler ist aufgetreten"
+	}
+}

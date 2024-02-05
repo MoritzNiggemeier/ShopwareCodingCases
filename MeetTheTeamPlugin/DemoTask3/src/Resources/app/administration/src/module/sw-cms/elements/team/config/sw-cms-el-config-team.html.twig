@@ -1,0 +1,22 @@
+{% block sw_cms_element_team_config %}
+    <div>
+        <h2>Team Element Config</h2>
+        <sw-entity-single-select
+            entity="team"
+            @option-select="addMember">
+        </sw-entity-single-select>
+        <sw-data-grid
+            :dataSource="teamMembers"
+            :showSelection="false"
+            :columns="columns()"
+            :isLoading="isLoading">
+            <template #actions="{ item }">
+                <sw-context-menu-item
+                    variant="danger"
+                    @click="removeMember(item.id)">
+                    delete
+                </sw-context-menu-item>
+            </template>
+        </sw-data-grid>
+    </div>
+{% endblock %}
